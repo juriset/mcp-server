@@ -1,0 +1,13 @@
+{
+  "name": "juriset-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Juriset: verified, versioned, cited US and Canadian employment and payroll rules (runs the PyPI package with uvx)",
+  "license": "MIT",
+  "type": "module",
+  "mcpName": "dev.juriset/juriset",
+  "homepage": "https://juriset.dev",
+  "keywords": ["mcp", "model-context-protocol", "employment-law", "payroll", "minimum-wage", "compliance"],
+  "bin": { "juriset-mcp": "bin/juriset-mcp.js" },
+  "files": ["bin", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" }
+}

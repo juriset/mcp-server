@@ -1,0 +1,63 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "dev.juriset/juriset",
+  "title": "Juriset",
+  "description": "Verified, cited US and Canadian employment and payroll rules, each value with its official source.",
+  "websiteUrl": "https://juriset.dev",
+  "repository": {
+    "url": "https://github.com/juriset/mcp-server",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "juriset-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "JURISET_API_KEY",
+          "description": "Optional Juriset API key (https://juriset.dev/account). Without one, the keyless tier answers current rules at 60 requests an hour per IP.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "juriset-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "JURISET_API_KEY",
+          "description": "Optional Juriset API key (https://juriset.dev/account). Without one, the keyless tier answers current rules at 60 requests an hour per IP.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.juriset.dev/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional: `Bearer jrs_live_…` with a Juriset API key (https://juriset.dev/account). Without it the keyless tier answers current rules at 60 requests an hour per IP.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
