@@ -6,4 +6,4 @@ installs as `juriset_mcp`. Tools are data (`tools.yaml`, compiled to `tools.json
 and server are generic (PRD 6.5).
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"

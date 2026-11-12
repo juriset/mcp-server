@@ -1,6 +1,6 @@
 {
   "name": "juriset-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for Juriset: verified, versioned, cited US and Canadian employment and payroll rules (runs the PyPI package with uvx)",
   "license": "MIT",
   "type": "module",
