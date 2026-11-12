@@ -2,7 +2,7 @@
 # monorepo; changes made here are not released (see README).
 [project]
 name = "juriset-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP server for Juriset: verified, versioned, cited US and Canadian employment and payroll rules"
 readme = "README.md"
 license = "MIT"
