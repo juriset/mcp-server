@@ -6,8 +6,9 @@ JURISET_API_KEY   optional: your API key (https://juriset.dev/account). Without 
 JURISET_API_URL   default https://api.juriset.dev
 """
 
+import argparse
 import os
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 
 import anyio
 import httpx
@@ -40,7 +41,22 @@ async def serve() -> None:
             await server.run(read, write, server.create_initialization_options())
 
 
-def main() -> None:
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    """`--help` and `--version` answer and exit. Without this the server started on any argument
+    and sat waiting for an MCP client on stdin, so `juriset-mcp --help` looked like a hang."""
+    parser = argparse.ArgumentParser(
+        prog="juriset-mcp",
+        description="The Juriset MCP server over stdio. An MCP client starts it; run by hand,"
+        " it waits for a client on stdin.",
+        epilog="environment:\n" + (__doc__ or "").split("\n\n", 1)[-1].rstrip(),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("--version", action="version", version=f"juriset-mcp {__version__}")
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    parse_args(argv)
     anyio.run(serve)
 
 
